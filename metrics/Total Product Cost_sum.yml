@@ -1,0 +1,7 @@
+unique_name: Total Product Cost_sum
+object_type: metric
+label: Total Product Cost
+calculation_method: sum
+column: totalproductcost
+dataset: factinternetsales
+format: '#,###.00;(#,###.00)'

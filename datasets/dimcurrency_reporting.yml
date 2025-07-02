@@ -1,0 +1,20 @@
+unique_name: dimcurrency_reporting
+object_type: dataset
+label: dimcurrency_reporting
+columns:
+  - name: currencykey
+    data_type: long
+  - name: currencyalternatekey
+    data_type: string
+  - name: currencyname
+    data_type: string
+connection_id: As_Adventure
+sql: |-
+  SELECT
+  currencykey,
+  currencyalternatekey,
+  currencyname
+  FROM
+   `atscale-sales-demo.as_adventure_small_training.dimcurrency`
+  WHERE 
+  currencykey IN (36, 98, 100)

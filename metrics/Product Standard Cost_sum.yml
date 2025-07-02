@@ -1,0 +1,7 @@
+unique_name: Product Standard Cost_sum
+object_type: metric
+label: Product Standard Cost
+calculation_method: sum
+column: productstandardcost
+dataset: factinternetsales
+format: '#,###.00;(#,###.00)'
