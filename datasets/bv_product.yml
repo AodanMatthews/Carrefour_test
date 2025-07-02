@@ -1,0 +1,20 @@
+unique_name: bv_product
+object_type: dataset
+label: bv_product
+columns:
+  - name: GKey
+    data_type: string
+  - name: LKey
+    data_type: string
+  - name: productkey
+    data_type: long
+  - name: productalternatekey
+    data_type: string
+  - name: englishproductname
+    data_type: string
+  - name: color
+    data_type: string
+  - name: Status
+    data_type: string
+connection_id: con_atscale-sales-demo_Security_DIM_AM
+table: bv_product
