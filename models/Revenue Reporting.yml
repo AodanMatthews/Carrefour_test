@@ -46,7 +46,7 @@ relationships:
         - LKey
     to:
       dimension: L_Product Dimension
-      level: Product Code
+      level: L_Product Code
   - unique_name: G_fact_GKey_to_G_Product Dimension_Product Code
     from:
       dataset: G_fact
@@ -54,4 +54,4 @@ relationships:
         - GKey
     to:
       dimension: G_Product Dimension
-      level: Product Code
+      level: G_Product Code
