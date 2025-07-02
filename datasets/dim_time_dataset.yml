@@ -75,6 +75,6 @@ sql: |-
           FORMAT_DATE('%B', date_day) as month_of_year_name,
           EXTRACT(QUARTER from date_day) as quarter_of_year,
           concat("Quarter ", EXTRACT(QUARTER from date_day)) as quarter_of_year_name
-          FROM UNNEST(GENERATE_DATE_ARRAY(DATE('2006-01-01'), DATE('2008-07-31'), INTERVAL 1 DAY)) AS date_day
+          FROM UNNEST(GENERATE_DATE_ARRAY(DATE('2007-01-01'), DATE('2007-12-31'), INTERVAL 1 DAY)) AS date_day
 
      
