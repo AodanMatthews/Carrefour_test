@@ -1,0 +1,5 @@
+unique_name: Total Sales Amount
+object_type: metric_calc
+label: Total Sales Amount
+expression: '[Measures].[G_fact_salesamount_sum] + [Measures].[L_fact_salesamount_sum]'
+is_hidden: false

@@ -1,0 +1,57 @@
+unique_name: Group Dimension
+object_type: dimension
+label: Group Dimension
+hierarchies:
+  - unique_name: Group Hierarchy
+    label: Group Hierarchy
+    levels:
+      - unique_name: Group Code
+      - unique_name: Group Country
+      - unique_name: Group Region
+      - unique_name: Region Category Code
+        is_hidden: true
+      - unique_name: Prod Category Code
+        is_hidden: true
+level_attributes:
+  - unique_name: Group Region
+    label: Group Region
+    contains_unique_names: false
+    dataset: bv_group
+    is_unique_key: false
+    key_columns:
+      - salesterritoryregion
+    name_column: salesterritoryregion
+  - unique_name: Group Code
+    label: Group Code
+    contains_unique_names: false
+    dataset: bv_group
+    is_unique_key: false
+    key_columns:
+      - GroupCode
+    name_column: salesterritorygroup
+  - unique_name: Region Category Code
+    label: Region Category Code
+    contains_unique_names: false
+    dataset: bv_group
+    is_unique_key: false
+    key_columns:
+      - salesterritoryregion
+      - productcategorykey
+    name_column: productcategorykey
+  - unique_name: Group Country
+    label: Group Country
+    contains_unique_names: false
+    dataset: bv_group
+    is_unique_key: false
+    key_columns:
+      - salesterritorycountry
+    name_column: salesterritorycountry
+  - unique_name: Prod Category Code
+    label: Prod Category Code
+    contains_unique_names: false
+    dataset: bv_group
+    is_unique_key: false
+    key_columns:
+      - productcategorykey
+    name_column: productcategorykey
+type: standard

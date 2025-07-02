@@ -74,4 +74,17 @@ relationships:
     to:
       level: Product Name
     type: snowflake
+  - unique_name: >-
+      dimproductcategory_productcategorykey_to_Group Dimension_Prod Category
+      Code
+    from:
+      dataset: dimproductcategory
+      hierarchy: G_Product Hierarchy
+      join_columns:
+        - productcategorykey
+      level: Product Category
+    to:
+      dimension: Group Dimension
+      level: Prod Category Code
+    type: embedded
 type: standard
