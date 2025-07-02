@@ -1,9 +1,9 @@
-unique_name: Product Dimension
+unique_name: L_Product Dimension
 object_type: dimension
-label: Product Dimension
+label: L_Product Dimension
 hierarchies:
-  - unique_name: Product Hierarchy
-    label: Product Hierarchy
+  - unique_name: L_Product Hierarchy
+    label: L_Product Hierarchy
     filter_empty: 'yes'
     levels:
       - unique_name: Product Category
@@ -47,11 +47,11 @@ level_attributes:
   - unique_name: Product Code
     label: Product Code
     contains_unique_names: false
-    dataset: dimproduct
+    dataset: bv_product
     is_unique_key: false
     key_columns:
-      - productkey
-    name_column: productkey
+      - LKey
+    name_column: LKey
 relationships:
   - from:
       dataset: dimproductsubcategory
@@ -66,5 +66,12 @@ relationships:
         - productsubcategorykey
     to:
       level: Product Sub-Category
+    type: snowflake
+  - from:
+      dataset: bv_product
+      join_columns:
+        - productkey
+    to:
+      level: Product Name
     type: snowflake
 type: standard

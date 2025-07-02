@@ -3,70 +3,54 @@ object_type: model
 label: Revenue Reporting
 dimensions: []
 metrics:
-  - unique_name: Unit Price
-    folder: Base Currency Metrics
-  - unique_name: Unit Price Discount
-    folder: Base Currency Metrics
-  - unique_name: Sales Amount_sum
-    folder: Base Currency Metrics
-  - unique_name: Tax Amount_sum
-    folder: Base Currency Metrics
-  - unique_name: Discount Amount_sum
-    folder: Base Currency Metrics
-  - unique_name: Extended Amount_sum
-    folder: Base Currency Metrics
-  - unique_name: Product Standard Cost_sum
-    folder: Base Currency Metrics
-  - unique_name: Total Product Cost_sum
-    folder: Base Currency Metrics
+  - unique_name: L_fact_salesamount_sum
+  - unique_name: G_fact_salesamount_sum
 relationships:
-  - unique_name: factinternetsales_productkey_to_Product Dimension_Product Code
+  - unique_name: G_fact_orderdate_to_Date Dimension_Date Key Join
     from:
-      dataset: factinternetsales
+      dataset: G_fact
       join_columns:
-        - productkey
+        - orderdatekey
     to:
-      dimension: Product Dimension
+      dimension: Date Dimension
+      level: Date Key Join
+  - unique_name: G_fact_orderdate_to_Date Dimension_W Date Key Join
+    from:
+      dataset: G_fact
+      join_columns:
+        - orderdatekey
+    to:
+      dimension: Date Dimension
+      level: W Date Key Join
+  - unique_name: L_fact_orderdate_to_Date Dimension_W Date Key Join
+    from:
+      dataset: L_fact
+      join_columns:
+        - orderdatekey
+    to:
+      dimension: Date Dimension
+      level: W Date Key Join
+  - unique_name: L_fact_orderdate_to_Date Dimension_Date Key Join
+    from:
+      dataset: L_fact
+      join_columns:
+        - orderdatekey
+    to:
+      dimension: Date Dimension
+      level: Date Key Join
+  - unique_name: L_fact_LKey_to_L_Product Dimension_Product Code
+    from:
+      dataset: L_fact
+      join_columns:
+        - LKey
+    to:
+      dimension: L_Product Dimension
       level: Product Code
-  - unique_name: factinternetsales_salesterritorykey_to_Geography Dimension_Geography Join
+  - unique_name: G_fact_GKey_to_G_Product Dimension_Product Code
     from:
-      dataset: factinternetsales
+      dataset: G_fact
       join_columns:
-        - salesterritorykey
+        - GKey
     to:
-      dimension: Geography Dimension
-      level: Geography Join
-  - unique_name: factinternetsales_shipdatekey_to_Date Dimension_Date Key Join
-    from:
-      dataset: factinternetsales
-      join_columns:
-        - shipdatekey
-    role_play: Ship {0}
-    to:
-      dimension: Date Dimension
-      level: Date Key Join
-  - unique_name: factinternetsales_orderdatekey_to_Date Dimension_Date Key Join
-    from:
-      dataset: factinternetsales
-      join_columns:
-        - orderdatekey
-    to:
-      dimension: Date Dimension
-      level: Date Key Join
-  - unique_name: factinternetsales_shipdatekey_to_Date Dimension_W Date Key Join
-    from:
-      dataset: factinternetsales
-      join_columns:
-        - shipdatekey
-    role_play: Ship {0}
-    to:
-      dimension: Date Dimension
-      level: W Date Key Join
-  - unique_name: factinternetsales_orderdatekey_to_Date Dimension_W Date Key Join
-    from:
-      dataset: factinternetsales
-      join_columns:
-        - orderdatekey
-    to:
-      dimension: Date Dimension
-      level: W Date Key Join
+      dimension: G_Product Dimension
+      level: Product Code

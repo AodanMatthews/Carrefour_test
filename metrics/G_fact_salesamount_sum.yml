@@ -1,0 +1,6 @@
+unique_name: G_fact_salesamount_sum
+object_type: metric
+label: G Sales Amount
+calculation_method: sum
+column: salesamount
+dataset: G_fact
