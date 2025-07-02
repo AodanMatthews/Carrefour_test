@@ -55,3 +55,19 @@ relationships:
     to:
       dimension: G_Product Dimension
       level: G_Product Code
+  - unique_name: L_fact_productkey_to_Product Dimension_Product Name
+    from:
+      dataset: L_fact
+      join_columns:
+        - productkey
+    to:
+      dimension: Product Dimension
+      level: Product Name
+  - unique_name: G_fact_productkey_to_Product Dimension_Product Name
+    from:
+      dataset: G_fact
+      join_columns:
+        - productkey
+    to:
+      dimension: Product Dimension
+      level: Product Name

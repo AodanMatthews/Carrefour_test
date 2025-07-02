@@ -5,3 +5,4 @@ calculation_method: sum
 column: salesamount
 dataset: L_fact
 format: '#,###.00;(#,###.00)'
+unrelated_dimensions_handling: empty
