@@ -4,3 +4,4 @@ label: G Sales Amount
 calculation_method: sum
 column: salesamount
 dataset: G_fact
+format: '#,###.00;(#,###.00)'
