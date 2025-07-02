@@ -61,7 +61,7 @@ relationships:
       hierarchy: G_Product Hierarchy
       join_columns:
         - productcategorykey
-      level: Product Category
+      level: G_Product Category
     to:
       dimension: Group Dimension
       level: Prod Category Code
