@@ -15,7 +15,7 @@ level_attributes:
   - unique_name: G_Product Category
     label: Product Category
     contains_unique_names: false
-    dataset: dimproductcategory
+    dataset: dimproductcategory_G
     is_unique_key: false
     key_columns:
       - productcategorykey
@@ -53,25 +53,12 @@ level_attributes:
       - GKey
     name_column: GKey
 relationships:
-  - unique_name: >-
-      dimproductcategory_productcategorykey_to_Group Dimension_Prod Category
-      Code
-    from:
-      dataset: dimproductcategory
-      hierarchy: G_Product Hierarchy
-      join_columns:
-        - productcategorykey
-      level: G_Product Category
-    to:
-      dimension: Group Dimension
-      level: Prod Category Code
-    type: embedded
   - from:
-      dataset: dimproductsubcategory
+      dataset: bv_product
       join_columns:
-        - productcategorykey
+        - productkey
     to:
-      level: G_Product Category
+      level: G_Product Name
     type: snowflake
   - from:
       dataset: dimproduct
@@ -81,10 +68,21 @@ relationships:
       level: G_Product Sub-Category
     type: snowflake
   - from:
-      dataset: bv_product
+      dataset: dimproductsubcategory
       join_columns:
-        - productkey
+        - productsubcategorykey
     to:
-      level: G_Product Name
+      level: G_Product Category
     type: snowflake
+  - unique_name: dimproductcategory_G_Group Code_to_Group Dimension_Group Code
+    from:
+      dataset: dimproductcategory_G
+      hierarchy: G_Product Hierarchy
+      join_columns:
+        - Group Code
+      level: G_Product Category
+    to:
+      dimension: Group Dimension
+      level: Group Code
+    type: embedded
 type: standard
