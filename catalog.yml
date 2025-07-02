@@ -1,0 +1,6 @@
+version: 1
+unique_name: Carrefour - Multi fact Test
+object_type: catalog
+label: Carrefour - Multi fact Test
+aggressive_agg_promotion: false
+build_speculative_aggs: true
