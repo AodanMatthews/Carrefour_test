@@ -1,0 +1,5 @@
+unique_name: G Count
+object_type: metric_calc
+label: G Count
+expression: COUNT( [G_Product Dimension].[G_Product Hierarchy].CurrentMember.Siblings )
+is_hidden: false

@@ -6,6 +6,8 @@ metrics:
   - unique_name: L_fact_salesamount_sum
   - unique_name: G_fact_salesamount_sum
   - unique_name: Total Sales Amount
+  - unique_name: G Count
+  - unique_name: L Count
 relationships:
   - unique_name: G_fact_orderdate_to_Date Dimension_Date Key Join
     from:

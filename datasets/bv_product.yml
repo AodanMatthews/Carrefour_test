@@ -12,9 +12,16 @@ columns:
     data_type: string
   - name: englishproductname
     data_type: string
+  - name: productLine
+    data_type: string
+  - name: productsubcategorycode
+    data_type: string
   - name: color
     data_type: string
   - name: Status
     data_type: string
+  - name: Group Code
+    data_type: string
+    sql: '"L"'
 connection_id: con_atscale-sales-demo_Security_DIM_AM
 table: bv_product
