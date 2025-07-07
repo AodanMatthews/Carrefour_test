@@ -1,5 +1,0 @@
-unique_name: L Count
-object_type: metric_calc
-label: L Count
-expression: COUNT( [G_Product Dimension].[G_Product Hierarchy].CurrentMember.Siblings )
-is_hidden: false

@@ -6,8 +6,9 @@ metrics:
   - unique_name: L_fact_salesamount_sum
   - unique_name: G_fact_salesamount_sum
   - unique_name: Total Sales Amount
-  - unique_name: G Count
-  - unique_name: L Count
+  - unique_name: Head
+  - unique_name: C Count
+  - unique_name: AD Count
 relationships:
   - unique_name: G_fact_orderdate_to_Date Dimension_Date Key Join
     from:
@@ -89,3 +90,19 @@ relationships:
     to:
       dimension: Customer Dimension
       level: Customer Key
+  - unique_name: dimcustomer_customerkey_to_Customer Dimension_Customer Key
+    from:
+      dataset: dimcustomer
+      join_columns:
+        - customerkey
+    to:
+      dimension: Customer Dimension
+      level: Customer Key
+  - unique_name: dimgeography_geographykey_to_Geography Dimension_Geography Join
+    from:
+      dataset: dimgeography
+      join_columns:
+        - geographykey
+    to:
+      dimension: Geography Dimension
+      level: Geography Join
