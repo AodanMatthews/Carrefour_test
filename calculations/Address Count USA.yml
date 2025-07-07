@@ -1,0 +1,14 @@
+unique_name: Address Count USA
+object_type: metric_calc
+label: Address Count USA
+expression: >-
+  CASE
+
+  WHEN  [Sales Region Dimension].[Sales Region Hierarchy].CurrentMember.Name =
+  "United States"  THEN ([Sales Region Dimension].[Sales Region
+  Hierarchy].[Country].&[United States], [Measures].[AD Count])
+
+  ELSE NULL
+
+  END
+is_hidden: false

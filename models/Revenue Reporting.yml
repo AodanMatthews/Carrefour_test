@@ -9,6 +9,7 @@ metrics:
   - unique_name: Head
   - unique_name: C Count
   - unique_name: AD Count
+  - unique_name: Address Count USA
 relationships:
   - unique_name: G_fact_orderdate_to_Date Dimension_Date Key Join
     from:
