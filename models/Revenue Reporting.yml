@@ -73,3 +73,19 @@ relationships:
     to:
       dimension: Product Dimension
       level: Product Name
+  - unique_name: G_fact_customerkey_to_Customer Dimension_Customer Key
+    from:
+      dataset: G_fact
+      join_columns:
+        - customerkey
+    to:
+      dimension: Customer Dimension
+      level: Customer Key
+  - unique_name: L_fact_customerkey_to_Customer Dimension_Customer Key
+    from:
+      dataset: L_fact
+      join_columns:
+        - customerkey
+    to:
+      dimension: Customer Dimension
+      level: Customer Key

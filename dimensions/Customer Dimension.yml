@@ -1,6 +1,40 @@
 unique_name: Customer Dimension
 object_type: dimension
 label: Customer Dimension
-hierarchies: []
-level_attributes: []
+hierarchies:
+  - unique_name: Customer Hierarchy
+    label: Customer Hierarchy
+    levels:
+      - unique_name: Address
+      - unique_name: Customer Key
+        is_hidden: true
+level_attributes:
+  - unique_name: Customer Key
+    label: Customer Key
+    contains_unique_names: false
+    dataset: dimcustomer
+    is_unique_key: false
+    key_columns:
+      - customerkey
+    name_column: customerkey
+  - unique_name: Address
+    label: Address
+    contains_unique_names: false
+    dataset: dimcustomer
+    is_unique_key: false
+    key_columns:
+      - addressline1
+    name_column: addressline1
+relationships:
+  - unique_name: dimcustomer_geographykey_to_Geography Dimension_Geography Join
+    from:
+      dataset: dimcustomer
+      hierarchy: Customer Hierarchy
+      join_columns:
+        - geographykey
+      level: Customer Key
+    to:
+      dimension: Geography Dimension
+      level: Geography Join
+    type: embedded
 type: standard
