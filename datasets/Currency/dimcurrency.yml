@@ -1,0 +1,12 @@
+unique_name: dimcurrency
+object_type: dataset
+label: dimcurrency
+columns:
+  - name: currencykey
+    data_type: long
+  - name: currencyalternatekey
+    data_type: string
+  - name: currencyname
+    data_type: string
+connection_id: As_Adventure
+table: dimcurrency
