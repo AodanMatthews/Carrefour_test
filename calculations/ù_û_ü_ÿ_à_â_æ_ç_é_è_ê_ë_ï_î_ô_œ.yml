@@ -1,6 +1,6 @@
-unique_name: Total Sales Amount
+unique_name: ù_û_ü_ÿ_à_â_æ_ç_é_è_ê_ë_ï_î_ô_œ
 object_type: metric_calc
-label: Total Sales Amount
+label: ù_û_ü_ÿ_à_â_æ_ç_é_è_ê_ë_ï_î_ô_œ
 expression: '[Measures].[G_fact_salesamount_sum] + [Measures].[L_fact_salesamount_sum]'
 format: '#,###.00;(#,###.00)'
 is_hidden: false

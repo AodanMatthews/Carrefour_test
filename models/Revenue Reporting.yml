@@ -5,7 +5,7 @@ dimensions: []
 metrics:
   - unique_name: L_fact_salesamount_sum
   - unique_name: G_fact_salesamount_sum
-  - unique_name: Total Sales Amount
+  - unique_name: ù_û_ü_ÿ_à_â_æ_ç_é_è_ê_ë_ï_î_ô_œ
 relationships:
   - unique_name: G_fact_orderdate_to_Date Dimension_Date Key Join
     from:
