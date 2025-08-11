@@ -1,7 +1,6 @@
 unique_name: Date Dimension
 object_type: dimension
 label: Date Dimension
-
 calculation_groups:
   - unique_name: Year Comparatives
     label: Year Comparatives
@@ -11,49 +10,50 @@ calculation_groups:
         name: CY YTD
         description: Current Year to Date
         expression: >-
-            IIF ( IsEmpty ( [Measures].currentMember ) , NULL ,
-            Sum(PeriodsToDate([Date Dimension].[Date Month Hierarchy].[YearMonth], [Date
-            Dimension].[Date Month Hierarchy].CurrentMember), [Measures].currentMember))
+          IIF ( IsEmpty ( [Measures].currentMember ) , NULL ,
+          Sum(PeriodsToDate([Date Dimension].[Date Month Hierarchy].[YearMonth],
+          [Date Dimension].[Date Month Hierarchy].CurrentMember),
+          [Measures].currentMember))
         format: '#,###.00;(#,###.00)'
-
       - unique_name: 2- PY YTD
         name: PY YTD
         description: Prior Year to Date
         expression: >-
-            IIF ( IsEmpty ( [Measures].currentMember ) , NULL ,
-            Sum(PeriodsToDate([Date Dimension].[Date Month Hierarchy].[YearMonth],
-            ParallelPeriod([Date Dimension].[Date Month Hierarchy].[YearMonth], 1, [Date
-            Dimension].[Date Month Hierarchy].CurrentMember)), [Measures].currentMember))
+          IIF ( IsEmpty ( [Measures].currentMember ) , NULL ,
+          Sum(PeriodsToDate([Date Dimension].[Date Month Hierarchy].[YearMonth],
+          ParallelPeriod([Date Dimension].[Date Month Hierarchy].[YearMonth], 1,
+          [Date Dimension].[Date Month Hierarchy].CurrentMember)),
+          [Measures].currentMember))
         format: '#,###.00;(#,###.00)'
-
       - unique_name: 3- CY over PY YTD
         name: CY over PY YTD
         description: Current over Prior Year to Date
         expression: >-
           IIF ( IsEmpty ( [Measures].currentMember ) , NULL ,
-          Sum(PeriodsToDate([Date Dimension].[Date Month Hierarchy].[YearMonth], [Date
-          Dimension].[Date Month Hierarchy].CurrentMember), [Measures].currentMember) -
           Sum(PeriodsToDate([Date Dimension].[Date Month Hierarchy].[YearMonth],
-          ParallelPeriod([Date Dimension].[Date Month Hierarchy].[YearMonth], 1, [Date
-          Dimension].[Date Month Hierarchy].CurrentMember)), [Measures].currentMember) )
+          [Date Dimension].[Date Month Hierarchy].CurrentMember),
+          [Measures].currentMember) - Sum(PeriodsToDate([Date Dimension].[Date
+          Month Hierarchy].[YearMonth], ParallelPeriod([Date Dimension].[Date
+          Month Hierarchy].[YearMonth], 1, [Date Dimension].[Date Month
+          Hierarchy].CurrentMember)), [Measures].currentMember) )
         format: '#,###.00;(#,###.00)'
-
       - unique_name: 4- CY over PY YTD (%)
         name: CY over PY YTD (%)
         description: Current over Prior Year to Date as a percentage
         expression: >-
-          IIF ( IsEmpty ( [Measures].currentMember ) , NULL ,
-          DIVIDE( Sum(PeriodsToDate([Date Dimension].[Date Month Hierarchy].[YearMonth], [Date
-          Dimension].[Date Month Hierarchy].CurrentMember), [Measures].currentMember) - 
+          IIF ( IsEmpty ( [Measures].currentMember ) , NULL , DIVIDE(
           Sum(PeriodsToDate([Date Dimension].[Date Month Hierarchy].[YearMonth],
-          ParallelPeriod([Date Dimension].[Date Month Hierarchy].[YearMonth], 1, [Date
-          Dimension].[Date Month Hierarchy].CurrentMember)), [Measures].currentMember),
+          [Date Dimension].[Date Month Hierarchy].CurrentMember),
+          [Measures].currentMember) -  Sum(PeriodsToDate([Date Dimension].[Date
+          Month Hierarchy].[YearMonth], ParallelPeriod([Date Dimension].[Date
+          Month Hierarchy].[YearMonth], 1, [Date Dimension].[Date Month
+          Hierarchy].CurrentMember)), [Measures].currentMember),
           Sum(PeriodsToDate([Date Dimension].[Date Month Hierarchy].[YearMonth],
-          ParallelPeriod([Date Dimension].[Date Month Hierarchy].[YearMonth], 1, [Date
-          Dimension].[Date Month Hierarchy].CurrentMember)), [Measures].currentMember) ) )
+          ParallelPeriod([Date Dimension].[Date Month Hierarchy].[YearMonth], 1,
+          [Date Dimension].[Date Month Hierarchy].CurrentMember)),
+          [Measures].currentMember) ) )
         format: percent
     folder: Year Intelligence
-
   - unique_name: Month Comparatives
     label: Month Comparatives
     description: monthly time intelligence to apply to other measures
@@ -62,49 +62,50 @@ calculation_groups:
         name: CY MTD
         description: Current Year Month to Date
         expression: >-
-            IIF ( IsEmpty ( [Measures].currentMember ) , NULL ,
-            Sum(PeriodsToDate([Date Dimension].[Date Month Hierarchy].[Month], [Date
-            Dimension].[Date Month Hierarchy].CurrentMember), [Measures].currentMember))
+          IIF ( IsEmpty ( [Measures].currentMember ) , NULL ,
+          Sum(PeriodsToDate([Date Dimension].[Date Month Hierarchy].[Month],
+          [Date Dimension].[Date Month Hierarchy].CurrentMember),
+          [Measures].currentMember))
         format: '#,###.00;(#,###.00)'
-
       - unique_name: 2- PY MTD
         name: PY MTD
         description: Prior Year Month to Date
         expression: >-
-            IIF ( IsEmpty ( [Measures].currentMember ) , NULL ,
-            Sum(PeriodsToDate([Date Dimension].[Date Month Hierarchy].[Month],
-            ParallelPeriod([Date Dimension].[Date Month Hierarchy].[YearMonth], 1, [Date
-            Dimension].[Date Month Hierarchy].CurrentMember)), [Measures].currentMember))
+          IIF ( IsEmpty ( [Measures].currentMember ) , NULL ,
+          Sum(PeriodsToDate([Date Dimension].[Date Month Hierarchy].[Month],
+          ParallelPeriod([Date Dimension].[Date Month Hierarchy].[YearMonth], 1,
+          [Date Dimension].[Date Month Hierarchy].CurrentMember)),
+          [Measures].currentMember))
         format: '#,###.00;(#,###.00)'
-
       - unique_name: 3- CY over PY MTD
         name: CY over PY MTD
         description: Current Year over Prior Year, Month to Date
         expression: >-
           IIF ( IsEmpty ( [Measures].currentMember ) , NULL ,
-          Sum(PeriodsToDate([Date Dimension].[Date Month Hierarchy].[Month], [Date
-          Dimension].[Date Month Hierarchy].CurrentMember), [Measures].currentMember) -
           Sum(PeriodsToDate([Date Dimension].[Date Month Hierarchy].[Month],
-          ParallelPeriod([Date Dimension].[Date Month Hierarchy].[YearMonth], 1, [Date
-          Dimension].[Date Month Hierarchy].CurrentMember)), [Measures].currentMember) )
+          [Date Dimension].[Date Month Hierarchy].CurrentMember),
+          [Measures].currentMember) - Sum(PeriodsToDate([Date Dimension].[Date
+          Month Hierarchy].[Month], ParallelPeriod([Date Dimension].[Date Month
+          Hierarchy].[YearMonth], 1, [Date Dimension].[Date Month
+          Hierarchy].CurrentMember)), [Measures].currentMember) )
         format: '#,###.00;(#,###.00)'
-
       - unique_name: 4- CY over PY MTD (%)
         name: 4- CY over PY MTD (%)
         description: Current Year over Prior Year, Month to Date as a percentage
         expression: >-
-          IIF ( IsEmpty ( [Measures].currentMember ) , NULL ,
-          DIVIDE( Sum(PeriodsToDate([Date Dimension].[Date Month Hierarchy].[Month], [Date
-          Dimension].[Date Month Hierarchy].CurrentMember), [Measures].currentMember) - 
+          IIF ( IsEmpty ( [Measures].currentMember ) , NULL , DIVIDE(
           Sum(PeriodsToDate([Date Dimension].[Date Month Hierarchy].[Month],
-          ParallelPeriod([Date Dimension].[Date Month Hierarchy].[YearMonth], 1, [Date
-          Dimension].[Date Month Hierarchy].CurrentMember)), [Measures].currentMember),
+          [Date Dimension].[Date Month Hierarchy].CurrentMember),
+          [Measures].currentMember) -  Sum(PeriodsToDate([Date Dimension].[Date
+          Month Hierarchy].[Month], ParallelPeriod([Date Dimension].[Date Month
+          Hierarchy].[YearMonth], 1, [Date Dimension].[Date Month
+          Hierarchy].CurrentMember)), [Measures].currentMember),
           Sum(PeriodsToDate([Date Dimension].[Date Month Hierarchy].[Month],
-          ParallelPeriod([Date Dimension].[Date Month Hierarchy].[YearMonth], 1, [Date
-          Dimension].[Date Month Hierarchy].CurrentMember)), [Measures].currentMember) ) )
+          ParallelPeriod([Date Dimension].[Date Month Hierarchy].[YearMonth], 1,
+          [Date Dimension].[Date Month Hierarchy].CurrentMember)),
+          [Measures].currentMember) ) )
         format: percent
     folder: Month Intelligence
-
   - unique_name: Period Comparatives
     label: Period Comparatives
     description: Dynamic time intelligence to apply to other measures
@@ -112,17 +113,18 @@ calculation_groups:
       - unique_name: CurrentMember
         name: CurrentMember
         description: value of the current Member
-        expression: ([Date Dimension].[Date Month Hierarchy].CurrentMember, [Measures].currentMember)
+        expression: >-
+          ([Date Dimension].[Date Month Hierarchy].CurrentMember,
+          [Measures].currentMember)
         format: '#,###.00;(#,###.00)'
-
       - unique_name: Previous
         name: Previous
         description: Previous Member
         expression: >-
-          ([Date Dimension].[Date Month Hierarchy].CurrentMember.prevMember, [Measures].currentMember)
+          ([Date Dimension].[Date Month Hierarchy].CurrentMember.prevMember,
+          [Measures].currentMember)
         format: '#,###.00;(#,###.00)'
     folder: Time Intelligence
-
 hierarchies:
   - unique_name: Date Month Hierarchy
     label: Date Month Hierarchy
@@ -201,24 +203,7 @@ hierarchies:
             name_column: pk_date
             sort_column: pk_date
       - unique_name: Date Key Join
-  - unique_name: Date Week Hierarchy
-    label: Date Week Hierarchy
-    filter_empty: 'yes'
-    folder: Date Attributes
-    levels:
-      - unique_name: YearWeek
-      - unique_name: Week
-        secondary_attributes:
-          - unique_name: d_week_of_year
-            label: Week Of Year
-            dataset: dim_time_dataset
-            folder: Date Attributes
-            key_columns:
-              - week_of_year
-            name_column: week_of_year
-            sort_column: week_of_year
-      - unique_name: DayMonth
-      - unique_name: W Date Key Join
+        is_hidden: true
 level_attributes:
   - unique_name: YearMonth
     label: Year
@@ -260,37 +245,10 @@ level_attributes:
     name_column: date_name
     sort_column: pk_date
     time_unit: day
-  - unique_name: YearWeek
-    label: Year
-    dataset: dim_time_dataset
-    key_columns:
-      - year
-    name_column: year_name
-    sort_column: year
-    time_unit: year
-  - unique_name: Week
-    label: Week
-    dataset: dim_time_dataset
-    key_columns:
-      - week
-    name_column: week_name
-    sort_column: week
-    time_unit: week
   - unique_name: Date Key Join
     label: Date Key Join
     dataset: dim_time_dataset
     is_hidden: true
-    key_columns:
-      - datekey
-    name_column: date_name
-    sort_column: datekey
-    time_unit: day
-  - unique_name: W Date Key Join
-    label: W Date Key Join
-    contains_unique_names: false
-    dataset: dim_time_dataset
-    is_hidden: true
-    is_unique_key: false
     key_columns:
       - datekey
     name_column: date_name

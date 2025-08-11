@@ -1,5 +1,0 @@
-unique_name: Head
-object_type: metric_calc
-label: Head
-expression: '[Measures].[AD Count] / [Measures].[C Count]'
-is_hidden: false
