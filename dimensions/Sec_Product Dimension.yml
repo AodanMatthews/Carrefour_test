@@ -6,60 +6,60 @@ hierarchies:
     label: Sec Product Hierarchy
     filter_empty: 'yes'
     levels:
-      - unique_name: Product Sub-Category
+      - unique_name: Sec_Product Sub-Category
         is_hidden: true
-      - unique_name: Product Line
-      - unique_name: Product Name
+      - unique_name: Sec_Product Line
+      - unique_name: Sec_Product Name
 level_attributes:
-  - unique_name: Product Sub-Category
+  - unique_name: Sec_Product Sub-Category
     label: Product Sub-Category
     contains_unique_names: false
-    dataset: dimproductsubcategory
+    dataset: Sec_dimproductsubcategory
     is_unique_key: false
     key_columns:
       - productsubcategorykey
     name_column: englishproductsubcategoryname
-  - unique_name: Product Line
+  - unique_name: Sec_Product Line
     label: Product Line
     contains_unique_names: false
-    dataset: dimproduct
+    dataset: Sec_dimproduct
     is_unique_key: false
     key_columns:
       - productline
     name_column: productline
-  - unique_name: Product Name
+  - unique_name: Sec_Product Name
     label: Product Name
     contains_unique_names: false
-    dataset: dimproduct
+    dataset: Sec_dimproduct
     is_unique_key: false
     key_columns:
       - productkey
     name_column: englishproductname
 relationships:
   - from:
-      dataset: dimproduct
+      dataset: Sec_dimproduct
       join_columns:
         - productsubcategorykey
     to:
-      level: Product Sub-Category
+      level: Sec_Product Sub-Category
     type: snowflake
-  - unique_name: dimproduct_productkey_to_Product Security
+  - unique_name: Sec_dimproduct_productkey_to_Product Security
     from:
-      dataset: dimproduct
+      dataset: Sec_dimproduct
       hierarchy: Sec Product Hierarchy
       join_columns:
         - productkey
-      level: Product Line
+      level: Sec_Product Line
     to:
       row_security: Product Security
     type: embedded
-  - unique_name: dimproduct_productkey_to_Product Dimension_Product Name
+  - unique_name: Sec_dimproduct_productkey_to_Product Dimension_Product Name
     from:
-      dataset: dimproduct
+      dataset: Sec_dimproduct
       hierarchy: Sec Product Hierarchy
       join_columns:
         - productkey
-      level: Product Line
+      level: Sec_Product Line
     to:
       dimension: Product Dimension
       level: Product Name

@@ -70,4 +70,4 @@ relationships:
         - productkey
     to:
       dimension: Sec_Product Dimension
-      level: Product Name
+      level: Sec_Product Name
