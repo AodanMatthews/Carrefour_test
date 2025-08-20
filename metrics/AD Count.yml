@@ -1,6 +1,0 @@
-unique_name: AD Count
-object_type: metric
-label: AD Count
-calculation_method: count distinct
-column: addressline1
-dataset: dimcustomer

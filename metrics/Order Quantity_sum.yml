@@ -1,7 +1,0 @@
-unique_name: Order Quantity_sum
-object_type: metric
-label: Order Quantity
-calculation_method: sum
-column: orderquantity
-dataset: factinternetsales
-format: '#,###.0;(#,###.0)'

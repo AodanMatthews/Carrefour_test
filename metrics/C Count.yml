@@ -1,6 +1,0 @@
-unique_name: C Count
-object_type: metric
-label: C Count
-calculation_method: count distinct
-column: city
-dataset: dimgeography

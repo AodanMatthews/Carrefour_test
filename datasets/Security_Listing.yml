@@ -1,0 +1,14 @@
+unique_name: Security_Listing
+object_type: dataset
+label: Security_Listing
+columns:
+  - name: Value
+    data_type: long
+  - name: Type
+    data_type: string
+  - name: User
+    data_type: string
+  - name: Email
+    data_type: string
+connection_id: con_atscale-sales-demo_Security_DIM_AM
+table: Security_Listing

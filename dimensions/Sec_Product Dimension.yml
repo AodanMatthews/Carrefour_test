@@ -1,0 +1,67 @@
+unique_name: Sec_Product Dimension
+object_type: dimension
+label: Sec Product Dimension
+hierarchies:
+  - unique_name: Sec Product Hierarchy
+    label: Sec Product Hierarchy
+    filter_empty: 'yes'
+    levels:
+      - unique_name: Product Sub-Category
+        is_hidden: true
+      - unique_name: Product Line
+      - unique_name: Product Name
+level_attributes:
+  - unique_name: Product Sub-Category
+    label: Product Sub-Category
+    contains_unique_names: false
+    dataset: dimproductsubcategory
+    is_unique_key: false
+    key_columns:
+      - productsubcategorykey
+    name_column: englishproductsubcategoryname
+  - unique_name: Product Line
+    label: Product Line
+    contains_unique_names: false
+    dataset: dimproduct
+    is_unique_key: false
+    key_columns:
+      - productline
+    name_column: productline
+  - unique_name: Product Name
+    label: Product Name
+    contains_unique_names: false
+    dataset: dimproduct
+    is_unique_key: false
+    key_columns:
+      - productkey
+    name_column: englishproductname
+relationships:
+  - from:
+      dataset: dimproduct
+      join_columns:
+        - productsubcategorykey
+    to:
+      level: Product Sub-Category
+    type: snowflake
+  - unique_name: dimproduct_productkey_to_Product Security
+    from:
+      dataset: dimproduct
+      hierarchy: Sec Product Hierarchy
+      join_columns:
+        - productkey
+      level: Product Line
+    to:
+      row_security: Product Security
+    type: embedded
+  - unique_name: dimproduct_productkey_to_Product Dimension_Product Name
+    from:
+      dataset: dimproduct
+      hierarchy: Sec Product Hierarchy
+      join_columns:
+        - productkey
+      level: Product Line
+    to:
+      dimension: Product Dimension
+      level: Product Name
+    type: embedded
+type: standard
