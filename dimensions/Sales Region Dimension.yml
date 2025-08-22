@@ -45,5 +45,15 @@ level_attributes:
     key_columns:
       - salesterritorykey
     name_column: salesterritorykey
-relationships: []
+relationships:
+  - unique_name: dimsalesterritory_salesterritorycountry_to_Country Security
+    from:
+      dataset: dimsalesterritory
+      hierarchy: Sales Region Hierarchy
+      join_columns:
+        - salesterritorycountry
+      level: Region
+    to:
+      row_security: Country Security
+    type: embedded
 type: standard

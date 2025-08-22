@@ -1,0 +1,12 @@
+unique_name: geography_sec
+object_type: dataset
+label: geography_sec
+columns:
+  - name: country
+    data_type: string
+  - name: username
+    data_type: string
+  - name: email
+    data_type: string
+connection_id: con_atscale-sales-demo_Security_DIM_AM
+table: geography_sec
