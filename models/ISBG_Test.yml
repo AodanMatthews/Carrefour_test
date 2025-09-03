@@ -4,6 +4,11 @@ label: ISBG_Test
 dimensions: []
 metrics:
   - unique_name: Sales Orders_dc
+  - unique_name: Other Orders Count
+  - unique_name: Advert Sales Orders
+  - unique_name: Sales Orders (No Adverts-Other)
+  - unique_name: salesamount_sum
+
 relationships:
   - unique_name: >-
       factinternetsalesreason_salesreasonkey_to_Sales Reason Dimension_Sales

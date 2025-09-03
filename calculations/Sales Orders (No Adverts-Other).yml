@@ -1,0 +1,7 @@
+unique_name: Sales Orders (No Adverts-Other)
+object_type: metric_calc
+label: Sales Orders (No Adverts-Other)
+expression: |-
+  [Measures].[Sales Orders_dc] -
+  [Measures].[Advert Sales Orders]
+is_hidden: false

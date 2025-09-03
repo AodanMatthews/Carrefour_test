@@ -1,0 +1,12 @@
+unique_name: Advert Sales Orders
+object_type: metric_calc
+label: Advert Sales Orders
+expression: >-
+  ([Sales Reason Dimension].[Sales Reason Hierarchy].[Sales Reason].&[3],
+  [Measures].[Sales Orders_dc])
+
+  + 
+
+  ([Sales Reason Dimension].[Sales Reason Hierarchy].[Sales Reason].&[4],
+  [Measures].[Sales Orders_dc])
+is_hidden: false
