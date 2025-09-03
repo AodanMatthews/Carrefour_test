@@ -1,0 +1,21 @@
+unique_name: factinternetsalesreason
+object_type: dataset
+label: factinternetsalesreason
+columns:
+  - name: salesordernumber
+    data_type: string
+  - name: salesorderlinenumber
+    data_type: long
+  - name: salesreasonkey
+    data_type: long
+  - name: orderdatekey
+    data_type: long
+  - name: Row Index
+    data_type: long
+    sql: |-
+      ROW_NUMBER() OVER (
+          PARTITION BY salesordernumber
+          ORDER BY salesorderlinenumber, salesreasonkey
+        )
+connection_id: con_atscale-sales-demo_Security_DIM_AM
+table: Sales_Reason_fact

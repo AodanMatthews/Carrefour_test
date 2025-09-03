@@ -1,0 +1,7 @@
+unique_name: Sales Orders_dc
+object_type: metric
+label: Sales Orders
+calculation_method: count distinct
+column: salesordernumber
+dataset: factinternetsalesreason
+unrelated_dimensions_handling: repeat

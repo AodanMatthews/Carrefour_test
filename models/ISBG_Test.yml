@@ -1,0 +1,49 @@
+unique_name: ISBG_Test
+object_type: model
+label: ISBG_Test
+dimensions: []
+metrics:
+  - unique_name: Sales Orders_dc
+relationships:
+  - unique_name: >-
+      factinternetsalesreason_salesreasonkey_to_Sales Reason Dimension_Sales
+      Reason
+    from:
+      dataset: factinternetsalesreason
+      join_columns:
+        - salesreasonkey
+    to:
+      dimension: Sales Reason Dimension
+      level: Sales Reason
+  - unique_name: factinternetsalesreason_orderdatekey_to_Date Dimension_Date Key Join
+    from:
+      dataset: factinternetsalesreason
+      join_columns:
+        - orderdatekey
+    to:
+      dimension: Date Dimension
+      level: Date Key Join
+  - unique_name: factinternetsales_orderdatekey_to_Date Dimension_Date Key Join
+    from:
+      dataset: factinternetsales
+      join_columns:
+        - orderdatekey
+    to:
+      dimension: Date Dimension
+      level: Date Key Join
+  - unique_name: factinternetsales_customerkey_to_Customer Dimension_Customer Key
+    from:
+      dataset: factinternetsales
+      join_columns:
+        - customerkey
+    to:
+      dimension: Customer Dimension
+      level: Customer Key
+  - unique_name: factinternetsales_productkey_to_Product Dimension_Product Name
+    from:
+      dataset: factinternetsales
+      join_columns:
+        - productkey
+    to:
+      dimension: Product Dimension
+      level: Product Name
