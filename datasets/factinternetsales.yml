@@ -58,4 +58,4 @@ connection_id: As_Adventure
 sql: >-
   SELECT * FROM
   `atscale-sales-demo.as_adventure_small_training.factinternetsales`
-  WHERE orderdate <= "2007-01-01" and orderdate < "2008-01-01"
+  WHERE orderdate >= "2007-01-01" and orderdate < "2008-01-01"

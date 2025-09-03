@@ -3,10 +3,10 @@ object_type: metric_calc
 label: Advert Sales Orders
 expression: >-
   ([Sales Reason Dimension].[Sales Reason Hierarchy].[Sales Reason].&[3],
-  [Measures].[Sales Orders_dc])
+  [Measures].[Sales Orders_reasondc])
 
   + 
 
   ([Sales Reason Dimension].[Sales Reason Hierarchy].[Sales Reason].&[4],
-  [Measures].[Sales Orders_dc])
+  [Measures].[Sales Orders_reasondc])
 is_hidden: false

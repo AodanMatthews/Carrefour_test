@@ -3,12 +3,13 @@ object_type: model
 label: ISBG_Test
 dimensions: []
 metrics:
-  - unique_name: Sales Orders_dc
+  - unique_name: Sales Orders_reasondc
   - unique_name: Other Orders Count
   - unique_name: Advert Sales Orders
   - unique_name: Sales Orders (No Adverts-Other)
   - unique_name: salesamount_sum
-
+  - unique_name: Index Rows_dc
+  - unique_name: Sales Orders_salesdc
 relationships:
   - unique_name: >-
       factinternetsalesreason_salesreasonkey_to_Sales Reason Dimension_Sales
