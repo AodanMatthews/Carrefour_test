@@ -18,6 +18,4 @@ columns:
           ORDER BY salesorderlinenumber, salesreasonkey
         )
 connection_id: con_atscale-sales-demo_Security_DIM_AM
-sql: >-
-  SELECT * FROM `atscale-sales-demo.Security_DIM_AM.Sales_Reason_fact` WHERE
-  orderdatekey >= 20070101 and orderdatekey < 20080101
+table: Sales_Reason_fact

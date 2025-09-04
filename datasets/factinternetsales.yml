@@ -54,8 +54,5 @@ columns:
     data_type: datetime
   - name: shipdate
     data_type: datetime
-connection_id: As_Adventure
-sql: >-
-  SELECT * FROM
-  `atscale-sales-demo.as_adventure_small_training.factinternetsales` WHERE
-  orderdatekey >= 20070101 and orderdatekey < 20080101
+connection_id: con_atscale-sales-demo_Security_DIM_AM
+table: Sales_fact
