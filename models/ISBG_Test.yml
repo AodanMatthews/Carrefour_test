@@ -53,3 +53,23 @@ relationships:
     to:
       dimension: Product Dimension
       level: Product Name
+  - unique_name: >-
+      factinternetsalesreason_salesordernumber_to_Sales Orders Dimension_Sales
+      Order No
+    from:
+      dataset: factinternetsalesreason
+      join_columns:
+        - salesordernumber
+    to:
+      dimension: Sales Orders Dimension
+      level: Sales Order No
+  - unique_name: >-
+      factinternetsales_salesordernumber_to_Sales Orders Dimension_Sales Order
+      No
+    from:
+      dataset: factinternetsales
+      join_columns:
+        - salesordernumber
+    to:
+      dimension: Sales Orders Dimension
+      level: Sales Order No
