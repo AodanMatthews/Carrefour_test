@@ -6,6 +6,11 @@ hierarchies:
     label: Sales Orders Hierarchy
     levels:
       - unique_name: Sales Order No
+  - unique_name: Sales Orders Line Number
+    label: Sales Orders Line Number
+    levels:
+      - unique_name: Sales Order Line Number
+        is_hidden: true
 level_attributes:
   - unique_name: Sales Order No
     label: Sales Order No
@@ -16,4 +21,14 @@ level_attributes:
       - salesordernumber
     name_column: salesordernumber
     sort_column: salesordernumber
+  - unique_name: Sales Order Line Number
+    label: Sales Order Line Number
+    contains_unique_names: false
+    dataset: factinternetsalesreason
+    is_unique_key: false
+    key_columns:
+      - salesordernumber
+      - salesorderlinenumber
+    name_column: salesorderlinenumber
+    sort_column: salesorderlinenumber
 type: standard

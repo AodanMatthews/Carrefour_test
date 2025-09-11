@@ -3,5 +3,5 @@ object_type: metric_calc
 label: Sales Orders (No Adverts-Other)
 expression: |-
   [Measures].[Sales Orders_reasondc] -
-  [Measures].[Advert Sales Orders]
+  ([Measures].[Sales Orders (Adverts-Other)])
 is_hidden: false

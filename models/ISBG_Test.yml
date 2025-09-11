@@ -3,13 +3,20 @@ object_type: model
 label: ISBG_Test
 dimensions: []
 metrics:
-  - unique_name: Sales Orders_reasondc
-  - unique_name: Other Orders Count
-  - unique_name: Advert Sales Orders
-  - unique_name: Sales Orders (No Adverts-Other)
-  - unique_name: salesamount_sum
-  - unique_name: Index Rows_dc
   - unique_name: Sales Orders_salesdc
+  - unique_name: Sales Orders_reasondc
+  - unique_name: Sales Orders (Adverts-Other)
+  - unique_name: Sales Orders (No Adverts-Other)
+  - unique_name: Status Count_dc
+  - unique_name: AVG Status Count per SO
+  - unique_name: StatusKey Sum_dc
+  - unique_name: Last StatusKey
+  - unique_name: Last StatusKey (Adverts-Other)
+  - unique_name: Last StatusKey (No Adverts-Other)
+  - unique_name: Last StatusKey per SO
+  - unique_name: Ranked StatusName
+  - unique_name: Last StatusName per SO
+  - unique_name: Test
 relationships:
   - unique_name: >-
       factinternetsalesreason_salesreasonkey_to_Sales Reason Dimension_Sales
@@ -73,3 +80,14 @@ relationships:
     to:
       dimension: Sales Orders Dimension
       level: Sales Order No
+  - unique_name: >-
+      factinternetsalesreason_salesorderlinenumber_to_Sales Orders
+      Dimension_Sales Order Line Number
+    from:
+      dataset: factinternetsalesreason
+      join_columns:
+        - salesordernumber
+        - salesorderlinenumber
+    to:
+      dimension: Sales Orders Dimension
+      level: Sales Order Line Number

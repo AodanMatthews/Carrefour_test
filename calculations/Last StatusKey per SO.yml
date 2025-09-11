@@ -1,0 +1,12 @@
+unique_name: Last StatusKey per SO
+object_type: metric_calc
+label: Last StatusKey per SO
+expression: |-
+  MAX(
+      DESCENDANTS(
+      [Sales Orders Dimension].[Sales Orders Line Number].CurrentMember,
+      [Sales Orders Dimension].[Sales Orders Line Number].[Sales Order Line Number]
+      ),
+    [Measures].[Last StatusKey (No Adverts-Other)]
+  )
+is_hidden: false

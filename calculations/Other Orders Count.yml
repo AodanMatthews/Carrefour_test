@@ -1,7 +1,0 @@
-unique_name: Other Orders Count
-object_type: metric_calc
-label: Other Sales Orders
-expression: >-
-  ([Sales Reason Dimension].[Sales Reason Hierarchy].[Sales Reason].&[10],
-  [Measures].[Sales Orders_reasondc])
-is_hidden: false

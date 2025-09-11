@@ -1,0 +1,8 @@
+unique_name: Test
+object_type: metric_calc
+label: Test
+expression: |-
+  IIF( [Measures].[Last StatusKey per SO] > 0, 
+  [Measures].[Last StatusName per SO]
+  , "INVALID" )
+is_hidden: false

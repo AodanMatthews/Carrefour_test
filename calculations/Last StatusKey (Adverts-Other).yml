@@ -1,0 +1,13 @@
+unique_name: Last StatusKey (Adverts-Other)
+object_type: metric_calc
+label: Last StatusKey (Adverts-Other)
+expression: >-
+  ([Sales Reason Dimension].[Sales Reason Hierarchy].[Sales Reason].&[3],
+  [Measures].[Last StatusKey]) +  
+
+  ([Sales Reason Dimension].[Sales Reason Hierarchy].[Sales Reason].&[4],
+  [Measures].[Last StatusKey]) + 
+
+  ([Sales Reason Dimension].[Sales Reason Hierarchy].[Sales Reason].&[10],
+  [Measures].[Last StatusKey])
+is_hidden: false

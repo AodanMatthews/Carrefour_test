@@ -10,12 +10,40 @@ columns:
     data_type: long
   - name: orderdatekey
     data_type: long
-  - name: Row Index
+  - name: salesreasonalternatekey
     data_type: long
-    sql: |-
-      ROW_NUMBER() OVER (
-          PARTITION BY salesordernumber
-          ORDER BY salesorderlinenumber, salesreasonkey
-        )
+  - name: salesreasonname
+    data_type: string
+  - name: salesreasonreasontype
+    data_type: string
+  - name: RowIndex
+    data_type: long
+  - name: RankedStatus
+    data_type: string
 connection_id: con_atscale-sales-demo_Security_DIM_AM
-table: Sales_Reason_fact
+sql: |
+  WITH RSR AS 
+
+  (SELECT 
+  salesordernumber,
+  salesorderlinenumber,
+  R.salesreasonkey,
+  orderdatekey,
+  salesreasonalternatekey,
+  salesreasonname,
+  salesreasonreasontype,
+  ROW_NUMBER() OVER (
+      PARTITION BY salesordernumber
+      ORDER BY salesorderlinenumber, R.salesreasonkey
+    ) as RowIndex
+  FROM `atscale-sales-demo.Security_DIM_AM.Sales_Reason_fact` R
+  INNER JOIN `atscale-sales-demo.as_adventure_small_training.dimsalesreason` S
+
+  ON S.salesreasonkey = R.salesreasonkey) 
+
+  SELECT *, Concat(RowIndex, " - ",salesreasonname) as RankedStatus From RSR 
+  ORDER BY
+  RowIndex,
+  salesordernumber,
+  salesreasonkey,
+  salesorderlinenumber

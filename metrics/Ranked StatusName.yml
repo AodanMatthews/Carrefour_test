@@ -1,0 +1,7 @@
+unique_name: Ranked StatusName
+object_type: metric
+label: Ranked StatusName
+calculation_method: maximum
+column: RankedStatus
+dataset: factinternetsalesreason
+unrelated_dimensions_handling: repeat

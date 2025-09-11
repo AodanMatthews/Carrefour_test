@@ -1,0 +1,12 @@
+unique_name: Last StatusName per SO
+object_type: metric_calc
+label: Last StatusName per SO
+expression: |-
+  MAX(
+      DESCENDANTS(
+        [Sales Orders Dimension].[Sales Orders Line Number].CurrentMember,
+        [Sales Orders Dimension].[Sales Orders Line Number].[Sales Order Line Number]
+      ),
+    [Measures].[Ranked StatusName]
+  )
+is_hidden: false

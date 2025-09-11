@@ -1,7 +1,7 @@
-unique_name: Index Rows_dc
+unique_name: Status Count_dc
 object_type: metric
-label: Index Row Count
+label: Status Count
 calculation_method: count distinct
-column: Row Index
+column: salesreasonkey
 dataset: factinternetsalesreason
 unrelated_dimensions_handling: repeat

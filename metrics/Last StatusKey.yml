@@ -1,0 +1,7 @@
+unique_name: Last StatusKey
+object_type: metric
+label: Last StatusKey
+calculation_method: maximum
+column: salesreasonkey
+dataset: factinternetsalesreason
+unrelated_dimensions_handling: repeat

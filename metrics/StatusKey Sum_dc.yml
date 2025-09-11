@@ -1,0 +1,7 @@
+unique_name: StatusKey Sum_dc
+object_type: metric
+label: StatusKey Sum
+calculation_method: sum
+column: salesreasonkey
+dataset: factinternetsalesreason
+unrelated_dimensions_handling: repeat
