@@ -2,11 +2,7 @@ unique_name: Last StatusName per SO
 object_type: metric_calc
 label: Last StatusName per SO
 expression: |-
-  MAX(
-      DESCENDANTS(
-        [Sales Orders Dimension].[Sales Orders Line Number].CurrentMember,
-        [Sales Orders Dimension].[Sales Orders Line Number].[Sales Order Line Number]
-      ),
-    [Measures].[Ranked StatusName]
-  )
+  IIF( [Measures].[Last StatusKey per SO] > 0, 
+  [Measures].[Ranked StatusName]
+  , "INVALID" )
 is_hidden: false

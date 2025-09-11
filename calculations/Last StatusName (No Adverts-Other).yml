@@ -1,8 +1,0 @@
-unique_name: Last StatusName (No Adverts-Other)
-object_type: metric_calc
-label: Last StatusName (No Adverts-Other)
-expression: |-
-
-  [Measures].[Last Sales Reason Name] -
-  [Measures].[Last StatusKey (Adverts-Other)]
-is_hidden: false

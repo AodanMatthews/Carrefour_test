@@ -16,7 +16,6 @@ metrics:
   - unique_name: Last StatusKey per SO
   - unique_name: Ranked StatusName
   - unique_name: Last StatusName per SO
-  - unique_name: Test
 relationships:
   - unique_name: >-
       factinternetsalesreason_salesreasonkey_to_Sales Reason Dimension_Sales
