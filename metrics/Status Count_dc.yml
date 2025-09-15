@@ -1,7 +1,0 @@
-unique_name: Status Count_dc
-object_type: metric
-label: Status Count
-calculation_method: count distinct
-column: salesreasonkey
-dataset: factinternetsalesreason
-unrelated_dimensions_handling: repeat
