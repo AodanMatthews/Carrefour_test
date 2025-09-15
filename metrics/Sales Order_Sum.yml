@@ -1,0 +1,7 @@
+unique_name: Sales Order_Sum
+object_type: metric
+label: Sales Order_Sum
+calculation_method: sum
+column: SO_sum
+dataset: factinternetsalesreason
+unrelated_dimensions_handling: repeat

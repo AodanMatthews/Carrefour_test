@@ -1,0 +1,7 @@
+unique_name: SO Row Count
+object_type: metric
+label: Max Row Count
+calculation_method: count non-null
+column: RowIndex
+dataset: factinternetsalesreason
+unrelated_dimensions_handling: repeat

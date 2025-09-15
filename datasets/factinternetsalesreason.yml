@@ -4,8 +4,6 @@ label: factinternetsalesreason
 columns:
   - name: salesordernumber
     data_type: string
-  - name: salesorderlinenumber
-    data_type: long
   - name: salesreasonkey
     data_type: long
   - name: orderdatekey
@@ -20,30 +18,34 @@ columns:
     data_type: long
   - name: RankedStatus
     data_type: string
+  - name: SO_sum
+    data_type: long
 connection_id: con_atscale-sales-demo_Security_DIM_AM
-sql: |
+sql: |-
   WITH RSR AS 
-
-  (SELECT 
+  (
+    SELECT 
   salesordernumber,
-  salesorderlinenumber,
   R.salesreasonkey,
   orderdatekey,
   salesreasonalternatekey,
   salesreasonname,
   salesreasonreasontype,
-  ROW_NUMBER() OVER (
-      PARTITION BY salesordernumber
-      ORDER BY salesorderlinenumber, R.salesreasonkey
-    ) as RowIndex
+  1 as SO_sum,
+  ROW_NUMBER() OVER ( PARTITION BY salesordernumber ) as RowIndex
+
   FROM `atscale-sales-demo.Security_DIM_AM.Sales_Reason_fact` R
   INNER JOIN `atscale-sales-demo.as_adventure_small_training.dimsalesreason` S
 
-  ON S.salesreasonkey = R.salesreasonkey) 
+  ON S.salesreasonkey = R.salesreasonkey
 
-  SELECT *, Concat(RowIndex, " - ",salesreasonname) as RankedStatus From RSR 
-  ORDER BY
-  RowIndex,
+  GROUP BY
   salesordernumber,
-  salesreasonkey,
-  salesorderlinenumber
+  R.salesreasonkey,
+  orderdatekey,
+  salesreasonalternatekey,
+  salesreasonname,
+  salesreasonreasontype
+  ) 
+
+  SELECT *, Concat(RowIndex, " - ",salesreasonname) as RankedStatus From RSR

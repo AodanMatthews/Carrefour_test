@@ -2,8 +2,6 @@ unique_name: Last StatusKey (No Adverts-Other)
 object_type: metric_calc
 label: Last StatusKey (No Adverts-Other)
 expression: |-
-
-  [Measures].[Last StatusKey] -
+  [Measures].[Last StatusKey per SO] -
   [Measures].[Last StatusKey (Adverts-Other)]
-
 is_hidden: false

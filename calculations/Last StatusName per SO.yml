@@ -2,7 +2,7 @@ unique_name: Last StatusName per SO
 object_type: metric_calc
 label: Last StatusName per SO
 expression: |-
-  IIF( [Measures].[Last StatusKey per SO] > 0, 
+  IIF( [Measures].[Last StatusKey (No Adverts-Other)] > 0, 
   [Measures].[Ranked StatusName]
   , "INVALID" )
 is_hidden: false
